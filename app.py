@@ -61,8 +61,6 @@ def precipitation():
     meas_data = [{date:prcp} for date, prcp in results]
 
     # Return the JSON representation of your dictionary.
-   
-
     return jsonify(meas_data)
 
 @app.route("/api/v1.0/weatherstation")
@@ -86,7 +84,6 @@ def tobs():
     session = Session(engine)
 
     # Query the dates and temperature observations of the most active station for the last year of data.
-    
     active = session.query(Measurement.date,Measurement.tobs).\
         filter(Measurement.station=='USC00519281').\
         filter(Measurement.date >= 2016-8-23).\
@@ -99,10 +96,42 @@ def tobs():
     # Return a JSON list of temperature observations (TOBS) for the previous year.
     return jsonify(active_list)
 
+@app.route("/api/v1.0/<start>")
+def start_date(start):
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
 
+    # start only, calculate TMIN, TAVG, and TMAX 
+    # for all dates greater than and equal to the start date.
+    start_date = session.query(Measurement.date,func.min(Measurement.tobs),func.max(Measurement.tobs),func.avg(Measurement.tobs)).\
+        filter(Measurement.date >= start).\
+        group_by(Measurement.date).all()
 
+    session.close()
+    # Make a list
+    start_list = list(start_date)
 
-   
+    # Return a JSON list of the minimum temperature, the average temperature, and the max temperature for a given start.
+    return jsonify(start_list)
+
+@app.route("/api/v1.0/<start>/<end>")
+def start_end(start, end):
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+
+    # start only, calculate TMIN, TAVG, and TMAX 
+    # for all dates greater than and equal to the start date.
+    start_end = session.query(Measurement.date,func.min(Measurement.tobs),func.max(Measurement.tobs),func.avg(Measurement.tobs)).\
+        filter(Measurement.date >= start).\
+        filter(Measurement.date <= end).\
+        group_by(Measurement.date).all()
+
+    session.close()
+    # Make a list
+    start_list_end = list(start_end)
+
+    # Return a JSON list of the minimum temperature, the average temperature, and the max temperature for a given start or start-end range.
+    return jsonify(start_list_end)
 
 # main block, run the flask app
 if __name__ == '__main__':
