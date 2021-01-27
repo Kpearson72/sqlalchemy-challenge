@@ -2,7 +2,7 @@
 
 ![surfs-up.png](Images/surfs-up.png)
 
-Congratulations! I treated myself to a long holiday vacation in Honolulu, Hawaii! To help with my trip planning, I needed to do some climate analysis on the area. The following outlines what I did.
+Congratulations! I treated myself to a long holiday vacation in Honolulu, Hawaii! To help with my trip planning, I needed to do some climate analysis on the area. The following outlines what I did. Check out my [climate_starter Jupyter Notebook here](https://github.com/Kpearson72/sqlalchemy-challenge/blob/main/climate_starter.ipynb)
 
 ## Step 1 - Climate Analysis and Exploration
 
@@ -40,14 +40,14 @@ To begin, I used Python and SQLAlchemy to do basic climate analysis and data exp
 
     ![station-histogram](Images/temp_freqHistogram.png)
 
-* Close out your session.
 
 - - -
 
 ## Step 2 - Climate App
 
-Now that you have completed your initial analysis, design a Flask API based on the queries that you have just developed.
+Now that I've completed my initial analysis, I designed a [Flask API](https://github.com/Kpearson72/sqlalchemy-challenge/blob/main/app.py) based on the queries that I've just developed.
 
+Here is my process:
 * Use Flask to create your routes.
 
 ### Routes
@@ -81,20 +81,10 @@ Now that you have completed your initial analysis, design a Flask API based on t
 
   * When given the start and the end date, calculate the `TMIN`, `TAVG`, and `TMAX` for dates between the start and end date inclusive.
 
-## Hints
-
-* You will need to join the station and measurement tables for some of the queries.
-
-* Use Flask `jsonify` to convert your API data into a valid JSON response object.
-
-- - -
 
 ## Bonus: Other Recommended Analyses
 
-* The following are optional challenge queries. These are highly recommended to attempt, but not required for the homework.
-
-
-### Temperature Analysis I
+### [Temperature Analysis I](https://github.com/Kpearson72/sqlalchemy-challenge/blob/main/temp_analysis_bonus_1_starter.ipynb)
 
 * Hawaii is reputed to enjoy mild weather all year. Is there a meaningful difference between the temperature in, for example, June and December?
 
