@@ -28,8 +28,6 @@ To begin, I used Python and SQLAlchemy to do basic climate analysis and data exp
 
   * Using the most active station id, calculate the lowest, highest, and average temperature.
 
-  * Hint: You will need to use a function such as `func.min`, `func.max`, `func.avg`, and `func.count` in your queries.
-
 * Design a query to retrieve the last 12 months of temperature observation data (TOBS).
 
   * Filter by the station with the highest number of observations.
@@ -48,7 +46,7 @@ To begin, I used Python and SQLAlchemy to do basic climate analysis and data exp
 Now that I've completed my initial analysis, I designed a [Flask API](https://github.com/Kpearson72/sqlalchemy-challenge/blob/main/app.py) based on the queries that I've just developed.
 
 Here is my process:
-* Use Flask to create your routes.
+* Use Flask to create routes.
 
 ### Routes
 
@@ -62,7 +60,7 @@ Here is my process:
 
   * Convert the query results to a dictionary using `date` as the key and `prcp` as the value.
 
-  * Return the JSON representation of your dictionary.
+  * Return the JSON representation of the dictionary.
 
 * `/api/v1.0/stations`
 
@@ -98,17 +96,17 @@ Here is my process:
 
 * Identify the average temperature in June at all stations across all available years in the dataset. Do the same for December temperature.
 
-* Use the t-test to determine whether the difference in the means, if any, is statistically significant. Will you use a paired t-test, or an unpaired t-test? Why?
+* Use the t-test to determine whether the difference in the means, if any, is statistically significant. Will I use a paired t-test, or an unpaired t-test? Why?
 
-### Temperature Analysis II
+### [Temperature Analysis II](https://github.com/Kpearson72/sqlalchemy-challenge/blob/main/temp_analysis_bonus_2_starter.ipynb)
 
-* You are looking to take a trip from August first to August seventh of this year, but are worried that the weather will be less than ideal. Using historical data in the dataset find out what the temperature has previously looked like.
+* I am looking to take a trip from August first to August seventh of this year, but are worried that the weather will be less than ideal. Using historical data in the dataset find out what the temperature has previously looked like.
 
 * The starter notebook contains a function called `calc_temps` that will accept a start date and end date in the format `%Y-%m-%d`. The function will return the minimum, average, and maximum temperatures for that range of dates.
 
-* Use the `calc_temps` function to calculate the min, avg, and max temperatures for your trip using the matching dates from a previous year (i.e., use "2017-08-01").
+* Use the `calc_temps` function to calculate the min, avg, and max temperatures for my trip using the matching dates from a previous year (i.e., use "2017-08-01").
 
-* Plot the min, avg, and max temperature from your previous query as a bar chart.
+* Plot the min, avg, and max temperature from my previous query as a bar chart.
 
   * Use "Trip Avg Temp" as the title.
 
@@ -126,7 +124,7 @@ Here is my process:
 
   * Sort this in descending order by precipitation amount and list the station, name, latitude, longitude, and elevation.
 
-* Calculate the daily normals. Normals are the averages for the min, avg, and max temperatures. You are provided with a function called `daily_normals` that will calculate the daily normals for a specific date. This date string will be in the format `%m-%d`. Be sure to use all historic TOBS that match that date string.
+* Calculate the daily normals. Normals are the averages for the min, avg, and max temperatures. I was provided with a function called `daily_normals` that will calculate the daily normals for a specific date. This date string will be in the format `%m-%d`. Be sure to use all historic TOBS that match that date string.
 
   * Set the start and end date of the trip.
 
@@ -141,7 +139,4 @@ Here is my process:
 * Use Pandas to plot an area plot (`stacked=False`) for the daily normals.
 
   ![daily-normals](Images/DailyRainfallAverage.png)
-
-* Close out your session.
-
 
